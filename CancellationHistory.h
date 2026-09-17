@@ -4,13 +4,13 @@
 #include <stack>
 
 class CancellationHistory {
-    private:
-        std::stack<Reservation> cancelledReservations;
+private:
+    std::stack<Reservation> cancelledReservations;
 
-    public:
-        void addCancelledReservation(const Reservation& reservation);
-        Reservation restoreLastCancellation();
-        void displayHistory();
+public:
+    void addCancelledReservation(const Reservation& reservation);
+    Reservation restoreLastCancellation();
+    void displayHistory();
 };
 
 #endif
