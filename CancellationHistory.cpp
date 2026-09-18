@@ -31,4 +31,3 @@ void CancellationHistory::displayHistory() {
         temp.pop();
     }
 }
-}
