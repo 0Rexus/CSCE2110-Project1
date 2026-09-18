@@ -4,10 +4,14 @@ This is a C++ program that manages campus resource reservations, waiting lists, 
 
 ## Setup
 
+Compile using g++:
+g++ *.cpp
 
+Running:
+.\a.exe
 
 ## Team Members
 
-* **Liam Roche** (@0Rexus)
-* **Ryan Anyanga** (@ryananyanga)
-* **Rabin Chaudhary** (@leorabin)
+* **Liam Roche** (@0Rexus) - Cancellation History, Complexity Analysis, GitHub Setup
+* **Ryan Anyanga** (@ryananyanga) - Linked Lists, Waiting Queue
+* **Rabin Chaudhary** (@leorabin) - Resource Management, Reservation Management
