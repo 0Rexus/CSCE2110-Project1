@@ -31,7 +31,7 @@ void ReservationList::insertReservation(const Reservation& reservation)
     }
 }
 
-bool ReservationList::removeReservation(int reservationID)
+bool ReservationList::removeReservation(int reservationID, Reservation& cancelledReservation)
 {
     if (head == nullptr)
     {
@@ -40,6 +40,7 @@ bool ReservationList::removeReservation(int reservationID)
 
     if (head->data.reservationID == reservationID)
     {
+        cancelledReservation = head->data;
         Node* temp = head;
         head = head->next;
         delete temp;
@@ -52,6 +53,7 @@ bool ReservationList::removeReservation(int reservationID)
     {
         if (current->next->data.reservationID == reservationID)
         {
+            cancelledReservation = current->next->data;
             Node* temp = current->next;
             current->next = current->next->next;
             delete temp;
