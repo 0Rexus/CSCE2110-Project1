@@ -52,3 +52,13 @@ void ResourceManager::displayResources() {
         std::cout << std::endl;
     }
 }
+
+bool ResourceManager::resourceExists(std::string id) {
+    for (int i = 0; i < resources.size(); i++) {
+        if (resources[i].getResourceID() == id) {
+            return true;
+        }
+    }
+
+    return false;
+}
