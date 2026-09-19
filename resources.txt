@@ -1,0 +1,5 @@
+R101,Study Room A,Study Room, 1
+R102,Study Room B,Study Room,1
+L201,Dell Laptop,Laptop, 1
+C301, TI-84 Calculator,Calculator,1
+E401,Microscope,Lab Equipment, 1
