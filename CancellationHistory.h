@@ -1,6 +1,7 @@
 #ifndef CANCELLATION_HISTORY_H
 #define CANCELLATION_HISTORY_H
 
+#include "Reservation.h"
 #include <stack>
 
 class CancellationHistory {
@@ -9,7 +10,7 @@ private:
 
 public:
     void addCancelledReservation(const Reservation& reservation);
-    Reservation restoreLastCancellation();
+    bool restoreLastCancellation(Reservation& restored);
     void displayHistory();
 };
 

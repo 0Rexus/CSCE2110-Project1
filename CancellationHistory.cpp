@@ -27,7 +27,13 @@ void CancellationHistory::displayHistory() {
     stack<Reservation> temp = cancelledReservations;
 
     while (!temp.empty()) {
-        cout << temp.top() << endl;
+        Reservation reservation = temp.top();
+        cout << "Reservation ID: " << reservation.reservationID() << endl;
+        cout << "Student ID: " << reservation.studentID() << endl;
+        cout << "Resource ID: " << reservation.resourceID() << endl;
+        cout << "Date: " << reservation.date() << endl;
+        cout << "Time: " << reservation.time() << endl;
+        cout << "------------------------" << endl;
         temp.pop();
     }
 }
