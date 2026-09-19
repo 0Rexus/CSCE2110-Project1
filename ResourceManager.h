@@ -12,6 +12,7 @@ private:
 public:
     void loadResources(std::string filename);
     void displayResources();
+    bool resourceExists(std::string id);
 };
 
 #endif
