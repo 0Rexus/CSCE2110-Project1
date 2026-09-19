@@ -12,7 +12,7 @@ void ResourceManager::loadResources(std::string filename) {
     }
 
     std::string line;
-
+    getline(file, line);
     while (getline(file, line)) {
         std::string id;
         std::string name;
@@ -61,4 +61,23 @@ bool ResourceManager::resourceExists(std::string id) {
     }
 
     return false;
+}
+
+bool ResourceManager::isAvailable(std::string id) {
+    for (int i = 0; i < resources.size(); i++) {
+        if (resources[i].getResourceID() == id) {
+            return resources[i].getAvailability();
+        }
+    }
+
+    return false;
+}
+
+void ResourceManager::setAvailability(std::string id, bool status) {
+    for (int i = 0; i < resources.size(); i++) {
+        if (resources[i].getResourceID() == id) {
+            resources[i].setAvailability(status);
+            return;
+        }
+    }
 }
