@@ -18,7 +18,7 @@ public:
     ReservationList();
 
     void insertReservation(const Reservation& reservation);
-    bool removeReservation(int reservationID);
+    bool removeReservation(int reservationID, Reservation& cancelledReservation);
     void displayReservations() const;
 };
 
