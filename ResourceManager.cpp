@@ -12,7 +12,7 @@ void ResourceManager::loadResources(std::string filename) {
     }
 
     std::string line;
-    getline(file, line);
+   
     while (getline(file, line)) {
         std::string id;
         std::string name;
@@ -21,12 +21,12 @@ void ResourceManager::loadResources(std::string filename) {
 
         std::stringstream ss(line);
 
-        getline(ss, id, ',');
-        getline(ss, name, ',');
-        getline(ss, type, ',');
-        getline(ss, status, ',');
+        getline(ss, id, '|');
+        getline(ss, name, '|');
+        getline(ss, type, '|');
+        getline(ss, status, '|');
 
-        bool available = (status == "1");
+        bool available = (status == "Available");
 
         Resource resource(id, name, type, available);
 
