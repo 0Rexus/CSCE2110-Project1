@@ -1,3 +1,7 @@
+#include "ResourceManager.h"
+#include "ReservationList.h"
+#include "WaitingQueue.h"
+#include "CancellationHistory.h"
 #include <iostream>
 #include <limits>
 using namespace std;
@@ -19,11 +23,26 @@ void printMenu() {
 }
 
 int intCheck() {
+    int number;
 
+    while (true) {
+        cout << "Enter a number: "; cin >> number;
+
+        if (cin.fail()) {
+            cout << "Invalid input. Please enter a valid number." << endl;
+            cin.clear(); // Clear the error flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        } else {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            return number;
+        }
+    }
 }
 
 string stringCheck() {
-
+    string input;
+    cout << "Enter a string: "; getline(cin, input);
+    return input;
 }
 
 int main() {
