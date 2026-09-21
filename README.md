@@ -4,11 +4,11 @@ This is a C++ program that manages campus resource reservations, waiting lists, 
 
 ## Setup
 
-Compile using g++:
-Bash
+Compile using g++: \
+Bash \
 g++ CancellationHistory.cpp Resource.cpp ResourceManager.cpp ReservationManager.cpp ReservationList.cpp WaitingQueue.cpp main.cpp
 
-Running:
+Running: \
 ./a.out
 
 ## Team Members
