@@ -12,7 +12,7 @@ bool CancellationHistory::restoreLastCancellation(Reservation& restored) {
         return false;
     }
 
-    Reservation restored = cancelledReservations.top();
+    restored = cancelledReservations.top();
     cancelledReservations.pop();
     return true;
 }

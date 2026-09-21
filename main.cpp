@@ -27,7 +27,7 @@ int intCheck() {
     int number;
 
     while (true) {
-        cout << "Enter a number: "; cin >> number;
+        cin >> number;
 
         if (cin.fail()) {
             cout << "Invalid input. Please enter a valid number." << endl;
@@ -42,7 +42,7 @@ int intCheck() {
 
 string stringCheck() {
     string input;
-    cout << "Enter a string: "; getline(cin, input);
+    getline(cin, input);
     return input;
 }
 
