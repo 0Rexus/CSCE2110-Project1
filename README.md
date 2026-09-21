@@ -5,7 +5,8 @@ This is a C++ program that manages campus resource reservations, waiting lists, 
 ## Setup
 
 Compile using g++:
-g++ *.cpp
+Bash
+g++ CancellationHistory.cpp Resource.cpp ResourceManager.cpp ReservationManager.cpp ReservationList.cpp WaitingQueue.cpp main.cpp
 
 Running:
 .\a.exe
