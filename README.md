@@ -9,7 +9,7 @@ Bash \
 g++ CancellationHistory.cpp Resource.cpp ResourceManager.cpp ReservationManager.cpp ReservationList.cpp WaitingQueue.cpp main.cpp
 
 Running: \
-.\a.exe
+./a.out
 
 ## Team Members
 
