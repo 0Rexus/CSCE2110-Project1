@@ -38,7 +38,7 @@ void ResourceManager::loadResources(std::string filename) {
 void ResourceManager::displayResources() {
     std::cout << "===== Available Resources =====" << std::endl;
 
-    for (int i = 0; i < resources.size(); i++) {
+    for (std::size_t i = 0; i < resources.size(); i++) {
         std::cout << resources[i].getResourceID() << " | "
                   << resources[i].getResourceName() << " | "
                   << resources[i].getResourceType() << "  | ";
@@ -54,7 +54,7 @@ void ResourceManager::displayResources() {
 }
 
 bool ResourceManager::resourceExists(std::string id) {
-    for (int i = 0; i < resources.size(); i++) {
+    for (std::size_t i = 0; i < resources.size(); i++) {
         if (resources[i].getResourceID() == id) {
             return true;
         }
@@ -64,7 +64,7 @@ bool ResourceManager::resourceExists(std::string id) {
 }
 
 bool ResourceManager::isAvailable(std::string id) {
-    for (int i = 0; i < resources.size(); i++) {
+    for (std::size_t i = 0; i < resources.size(); i++) {
         if (resources[i].getResourceID() == id) {
             return resources[i].getAvailability();
         }
@@ -74,10 +74,72 @@ bool ResourceManager::isAvailable(std::string id) {
 }
 
 void ResourceManager::setAvailability(std::string id, bool status) {
-    for (int i = 0; i < resources.size(); i++) {
+    for (std::size_t i = 0; i < resources.size(); i++) {
         if (resources[i].getResourceID() == id) {
             resources[i].setAvailability(status);
             return;
         }
+    }
+}
+
+void ResourceManager::sortResourcesByName() {
+    if (resources.size() <= 1) {
+        return;
+    }
+
+    mergeSort(0, resources.size() -1);
+}
+
+void ResourceManager::mergeSort(int left, int right) {
+    if (left >= right) {
+        return;
+    }
+
+    int mid = left + (right -left) / 2;
+
+    mergeSort(left, mid);
+
+    mergeSort(mid +1, right);
+
+    merge(left, mid, right);
+}
+
+void ResourceManager::merge(int left, int mid, int right) {
+    std::vector<Resource> leftPart;
+    std::vector<Resource> rightPart;
+
+    for (int i = left; i <= mid; i++) {
+        leftPart.push_back(resources[i]);
+    }
+
+    for (int i = mid +1; i <= right; i++) {
+        rightPart.push_back(resources[i]);
+    }
+
+    std::size_t i = 0;
+    std::size_t j = 0;
+    int k = left;
+
+    while (i < leftPart.size() && j < rightPart.size()) {
+        if (leftPart[i].getResourceName() <= rightPart[j].getResourceName()) {
+            resources[k] = leftPart[i];
+            i++;
+        } else {
+            resources[k] = rightPart[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < leftPart.size()) {
+        resources[k] = leftPart[i];
+        i++;
+        k++;
+    }
+
+    while (j < rightPart.size()) {
+        resources[k] = rightPart[j];
+        j++;
+        k++;
     }
 }
