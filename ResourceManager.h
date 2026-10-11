@@ -10,6 +10,9 @@ private:
     std::vector<Resource> resources;
 
 public:
+    const std::vector<Resource>& getResources() const {
+    return resources;
+}
     void loadResources(std::string filename);
     void displayResources();
     bool resourceExists(std::string id);

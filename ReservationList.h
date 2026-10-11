@@ -17,6 +17,10 @@ private:
 public:
     ReservationList();
 
+    const Node* getHead() const {
+    return head;
+}
+
     void insertReservation(const Reservation& reservation);
     bool removeReservation(int reservationID, Reservation& cancelledReservation);
     void displayReservations() const;
