@@ -13,6 +13,9 @@ private:
     void merge(int left, int mid, int right);
 
 public:
+    const std::vector<Resource>& getResources() const {
+    return resources;
+}
     void loadResources(std::string filename);
     void displayResources();
     bool resourceExists(std::string id);

@@ -15,19 +15,19 @@ Resource::Resource(std::string id, std::string name, std::string type, bool stat
     available = status;
 }
 
-std::string Resource::getResourceID() {
+std::string Resource::getResourceID() const {
     return resourceID;
 }
 
-std::string Resource::getResourceName() {
+std::string Resource::getResourceName() const {
     return resourceName;
 }
 
-std::string Resource::getResourceType() {
+std::string Resource::getResourceType() const {
     return resourceType;
 }
 
-bool Resource::getAvailability() {
+bool Resource::getAvailability() const {
     return available;
 }
 

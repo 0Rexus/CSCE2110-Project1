@@ -5,6 +5,7 @@
 #include <iostream>
 #include <limits>
 #include <string>
+
 using namespace std;
 
 void printMenu() {
@@ -27,19 +28,22 @@ int intCheck() {
     int number;
 
     while (true) {
-        cin >> number;
-
-        if (cin.fail()) {
-            cout << "Invalid input. Please enter a valid number." << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        } else {
+        if (cin >> number) {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             return number;
         }
+
+        if (cin.eof()) {
+            return -1;
+        }
+
+        cout << "Invalid input. Enter a number: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 }
 
+        
 string stringCheck() {
     string input;
     getline(cin, input);
@@ -61,6 +65,8 @@ int main() {
 
         cout << "Enter your choice: ";
         choice = intCheck();
+
+        cout << "DEBUG: You selected option " << choice << endl;
 
         switch (choice) {
             case 1: {
@@ -133,10 +139,10 @@ int main() {
             }
 
             case 5: {
-                cout << "\n===== Active Reservations =====\n";
-                reservationList.displayReservations();
-                break;
-            }
+                 cout << "\n===== Active Reservations =====\n";
+                 reservationList.displayReservations();
+                 break;
+       }
 
             case 6: {
                 cout << "\n===== Add Student to Waiting List =====\n";
@@ -149,14 +155,18 @@ int main() {
                     break;
                 }
 
-                waitingQueue.addStudent(studentID);
+                cout << "DEBUG: About to add student " << studentID << endl;
 
-                cout << "Added student to waiting list" << endl;
+                waitingQueue.addStudent(studentID);
+                cout << "TEST: Student " << studentID << " added successfully!" << endl;
+
+                cout << "DEBUG: Student added successfully!" << endl;
 
                 break;
             }
 
             case 7: {
+                cout << "DEBUG: Option 7 started!" << endl;
                 cout << "\n===== Process Waiting List =====\n";
 
                 int studentID;

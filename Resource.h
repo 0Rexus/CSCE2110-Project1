@@ -16,10 +16,10 @@ public:
     Resource(std::string id, std::string name,
              std::string type, bool status);
 
-    std::string getResourceID();
-    std::string getResourceName();
-    std::string getResourceType();
-    bool getAvailability();
+    std::string getResourceID() const;
+    std::string getResourceName() const;
+    std::string getResourceType() const;
+    bool getAvailability() const;
 
     void setAvailability(bool status);
 
