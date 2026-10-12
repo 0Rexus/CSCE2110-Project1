@@ -23,6 +23,11 @@ public:
     void setAvailability(std::string id, bool status);
 
     void sortResourcesByName();
+    void sortResourcesByID();
+
+    int binarySearchByID(const std::string& targetID) const;
+    int binarySearchByName(const std::string& targetName) const;
+    Resource getResourceAt(int index) const;
 };
 
 #endif

@@ -143,3 +143,61 @@ void ResourceManager::merge(int left, int mid, int right) {
         k++;
     }
 }
+
+int ResourceManager::binarySearchByID(const std::string& targetID) const {
+    int left = 0;
+    int right = static_cast<int>(resources.size()) - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (resources[mid].getResourceID() == targetID) {
+            return mid;
+        } else if (resources[mid].getResourceID() < targetID) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
+}
+
+int ResourceManager::binarySearchByName(const std::string& targetName) const {
+    int left = 0;
+    int right = static_cast<int>(resources.size()) - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (resources[mid].getResourceName() == targetName) {
+            return mid;
+        } else if (resources[mid].getResourceName() < targetName) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
+}
+
+void ResourceManager::sortResourcesByID() {
+    for (std::size_t i = 1; i < resources.size(); i++) {
+        Resource key = resources[i];
+        int j = static_cast<int>(i) - 1;
+
+        while (j >= 0 && resources[j].getResourceID() > key.getResourceID()) {
+            resources[j + 1] = resources[j];
+            j--;
+        }
+        resources[j + 1] = key;
+    }
+}
+
+Resource ResourceManager::getResourceAt(int index) const {
+    if (index >= 0 && index < static_cast<int>(resources.size())) {
+        return resources[index];
+    }
+    return Resource();
+}

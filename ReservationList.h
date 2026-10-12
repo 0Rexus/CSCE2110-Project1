@@ -16,6 +16,7 @@ private:
 
 public:
     ReservationList();
+    ~ReservationList();
 
     const Node* getHead() const {
     return head;
@@ -24,6 +25,9 @@ public:
     void insertReservation(const Reservation& reservation);
     bool removeReservation(int reservationID, Reservation& cancelledReservation);
     void displayReservations() const;
+
+    bool searchReservationByID(int reservationID, Reservation& foundReservation) const;
+    int searchReservationsByStudentID(int studentID) const;
 };
 
 #endif
